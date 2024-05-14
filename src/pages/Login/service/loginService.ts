@@ -1,10 +1,10 @@
 import { AxiosPromise } from "axios";
-import { Api, SERVICE } from "../../../service/api";
+import { Api, SERVICE } from "../../../services/api";
 import { LoginDTO, TokensDTO } from "../dtos/login.dto";
-import { UserDTO } from "../../../dtos/user.dto";
+import { UserLoginDTO } from "../../../dtos/user.dto";
 
 interface LoginResponse {
-    user: UserDTO;
+    user: UserLoginDTO;
     tokens: TokensDTO;
 }
 
