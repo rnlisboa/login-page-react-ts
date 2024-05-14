@@ -1,5 +1,6 @@
-import React, { ReactNode, useState } from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../contexts/authContext/authContext";
 
 interface PrivateRouteProps {
   component: React.ComponentType<any>;
@@ -7,8 +8,8 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, authenticated, ...rest }) => {
+  const { isAuthenticated } = useContext(AuthContext)
   
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   return isAuthenticated ? <Component {...rest} /> : <Navigate to="/login" replace />;
 };
 
