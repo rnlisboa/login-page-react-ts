@@ -16,7 +16,7 @@ export const useLoginRequest = () => {
         },
         onSuccess: (data) => localStorage.setItem("token", data.tokens.access),
         onError: (error) => {
-            error.message
+            console.log(error.message)
         }
     })
 
