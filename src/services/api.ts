@@ -24,7 +24,7 @@ class Api {
         }
         else if ((error.response.status === 403)) {
             //mandar pro login
-
+            localStorage.removeItem("token");
           return Promise.reject()
         }
       }
