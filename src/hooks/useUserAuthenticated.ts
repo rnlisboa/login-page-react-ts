@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import UserService from "../services/userServices/userService";
 
 const userService = new UserService();
@@ -10,13 +10,15 @@ async function getUserProfile (){
 
 
 const useUserAuthenticated = () => {
-    const mutation = useMutation({
-        mutationFn: () => {
-            return getUserProfile().then(response => response);
-        },
+    const query = useQuery({
+        queryFn: getUserProfile,
+        queryKey: ['get-user-profile'],
     })
-    
-    return mutation;
+
+    return {
+        ...query,
+        data: query?.data
+    }
 }
 
 export default useUserAuthenticated;
