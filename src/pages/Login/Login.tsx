@@ -1,12 +1,14 @@
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
+import { useLoginRequest } from './hooks/useAuthUser';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const loginMutation = useLoginRequest()
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const authUser = useAuth
+    loginMutation.mutate({email, password})
   };
 
   return (
