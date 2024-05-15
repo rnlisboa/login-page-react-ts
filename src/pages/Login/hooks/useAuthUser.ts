@@ -11,8 +11,8 @@ const loginRequest = async (credentials: LoginDTO) => {
 
 export const useLoginRequest = () => {
     const mutation = useMutation({
-        mutationFn: async (credentials: LoginDTO) => {
-            return await loginRequest(credentials).then((response) => response);
+        mutationFn: (credentials: LoginDTO) => {
+            return loginRequest(credentials).then((response) => response);
         },
         onSuccess: (data) => {
             localStorage.setItem("token", data.tokens.access);
