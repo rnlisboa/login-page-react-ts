@@ -14,7 +14,7 @@ function Profile() {
                 <Button
                     type={undefined}
                     value="Logout"
-                    classes={['h-11']}
+                    classes={['h-11', 'w-[272px]']}
                     onClick={logout}
                      />
             </Header>

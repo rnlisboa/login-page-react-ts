@@ -61,7 +61,7 @@ function Login() {
               <span>{error}</span>
             </div>
           )}
-          <Button classes={['h-14']} type='submit' value='Sign In'/>
+          <Button classes={['h-14', 'w-[100%]']} type='submit' value='Sign In'/>
         </form>
       </div>
     </div>
