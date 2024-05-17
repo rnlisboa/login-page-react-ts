@@ -15,7 +15,7 @@ function Input({...props}:InputProps) {
             id={props.type}
             className='border-none outline-none bg-input-bg text-input-text-color rounded-lg h-14 py-[18px] px-[20.25px] placeholder:text-input-text-color'
             value={props.value}
-            placeholder='@gmail.com'
+            placeholder={props.placeholder}
             onChange={(e) => props.setValue(e.target.value)}
             required
         />
