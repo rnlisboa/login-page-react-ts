@@ -12,23 +12,19 @@ export interface UserLoginDTO {
 
 interface Avatar {
     id: number;
-    image_high_url: string;
-    image_medium_url: string;
-    image_low_url: string;
-}
-
-interface Role {
-    value: number;
-    label: string;
+    high: string;
+    medium: string;
+    low: string;
 }
 
 export interface UserDTO {
     id: string;
     avatar: Avatar;
     name: string;
-    last_name: string;
+    created: Date;
     email: string;
-    role: Role;
-    last_login: string;
-    staff_role: Role;
+    role: string;
+    is_active: boolean;
+    modified: Date;
+    type: string
 }
