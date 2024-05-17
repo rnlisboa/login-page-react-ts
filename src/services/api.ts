@@ -19,12 +19,14 @@ class Api {
       async (error) => {
         if (error.response.status === 401) {
             //refreshtoken
-
+            localStorage.removeItem("token");
+            window.location.href = "/login";
             return Promise.reject() 
-        }
-        else if ((error.response.status === 403)) {
+          }
+          else if ((error.response.status === 403)) {
             //mandar pro login
             localStorage.removeItem("token");
+            window.location.href = "/login";
           return Promise.reject()
         }
       }
