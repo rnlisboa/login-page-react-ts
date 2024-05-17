@@ -1,7 +1,9 @@
+import Input from "./Input";
+import Label from "./Label";
+import { Root } from "./Root";
 
-function InputForm(){
-    return (
-        <>
-        </>
-    )
+export const InputForm = {
+    Input,
+    Label,
+    Root
 }
