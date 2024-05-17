@@ -1,12 +1,18 @@
+import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = {
-    type: "submit" | "reset" | "button" | undefined,
-    value: string,
+interface ButtonProps extends ButtonHTMLAttributes<any> {
+    
+    classes?: string[]
+
 }
 
-function Button({...props}:ButtonProps){
+function Button({ classes, ...rest }: ButtonProps) {
     return (
-        <button className='bg-button-bg h-14 text-white rounded-lg' type={props.type}>{props.value}</button>
+        <button
+            className={`bg-button-bg text-white rounded-lg w-[272px] ${classes ? classes.join(' ') : ''}`}
+            {...rest}>
+            {rest.value}
+        </button>
     )
 }
 
