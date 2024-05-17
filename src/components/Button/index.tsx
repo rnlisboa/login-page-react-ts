@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<any> {
 function Button({ classes, ...rest }: ButtonProps) {
     return (
         <button
-            className={`bg-button-bg text-white rounded-lg w-[272px] ${classes ? classes.join(' ') : ''}`}
+            className={`bg-button-bg text-white rounded-lg ${classes ? classes.join(' ') : ''}`}
             {...rest}>
             {rest.value}
         </button>
