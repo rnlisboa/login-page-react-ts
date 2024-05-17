@@ -1,6 +1,6 @@
 import { AxiosPromise } from "axios";
 import { Api, SERVICE } from "../api";
-import { UserDTO, UserLoginDTO } from "../../dtos/user.dto";
+import { UserDTO } from "../../dtos/user.dto";
 import { getToken } from "../auth";
 
 const token = getToken();
@@ -14,7 +14,7 @@ class UserService {
         this.baseUrl = SERVICE.CORE;
     }
 
-    public async getUser(): AxiosPromise<UserLoginDTO> {
+    public async getUser(): AxiosPromise<UserDTO> {
         return await this.apiCore.axios.get(`${this.baseUrl}auth/profile/`, {
             headers: {
                 Authorization: `Bearer ${token}`
