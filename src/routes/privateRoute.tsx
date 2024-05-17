@@ -9,13 +9,13 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, authenticated, ...rest }) => {
-  const {user, isLoading} = useAuth();
-  console.log("privateRoute", user)
+  const {isAuthenticated, isLoading} = useAuth();
 
   if(isLoading) {
     return "caregando...."
   }
-  return user ? <Component {...rest} /> : <Navigate to="/login" replace />;
+
+  return isAuthenticated ? <Component {...rest} /> : <Navigate to="/login" replace />;
 };
 
 export default PrivateRoute;
