@@ -3,15 +3,31 @@ import { useLoginRequest } from './hooks/useAuthUser';
 import { FaCircleInfo } from 'react-icons/fa6';
 import { InputForm } from '../../components/InputForm';
 import Button from '../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const loginMutation = useLoginRequest()
+  const [error, setError] = useState(''); 
+  const loginMutation = useLoginRequest();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    loginMutation.mutate({ email, password })
+    setError(''); // Reseta o erro antes de tentar o login
+    loginMutation.mutate(
+      { email, password },
+      {
+        onSuccess: ()=>{
+          navigate("/profile")
+        } ,
+        onError: (error) => {
+          setError('E-mail ou senha inválido(s)');
+        },
+        
+      }
+    );
+
   };
 
   return (
@@ -39,11 +55,13 @@ function Login() {
               setValue={setPassword} />
           </InputForm.Root>
 
-          <div className="flex gap-x-2 items-center text-red-600">
-            <FaCircleInfo />
-            <span> E-mail ou senha inválido(s)</span>
-          </div>
-          <Button type='submit' value='Sign In'/>
+          {error && (
+            <div className="flex gap-x-2 items-center text-red-600">
+              <FaCircleInfo />
+              <span>{error}</span>
+            </div>
+          )}
+          <Button classes={['h-14']} type='submit' value='Sign In'/>
         </form>
       </div>
     </div>
