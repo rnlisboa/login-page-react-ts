@@ -8,16 +8,18 @@
 2. Yarn (opcional, mas recomendado)
 
 ### Configuração do Ambiente
-
+<p>
 1. Clone o Repositório
 Clone este repositório em sua máquina local usando o comando:
-
+</p>
 ``` git clone https://github.com/seu-usuario/login-page.git ```
+<p>
 2. Instale as Dependências
 Navegue até o diretório do projeto e instale as dependências usando Yarn:
-
+</p>
 ``` cd login-page ```
 ``` yarn install ```
+<p>
 Se preferir usar npm, você pode usar o comando:
-
+</p>
 ``` npm install ```
