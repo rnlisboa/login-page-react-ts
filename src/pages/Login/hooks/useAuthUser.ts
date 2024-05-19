@@ -26,7 +26,7 @@ export const useLoginRequest = () => {
             window.location.href = "/profile";
         },
         onError: (error: Error) => {
-            if(error.data.status == 401) window.location.href = '/login'
+            if(error.data.status == 401) window.location.href = '/'
         }
     })
 

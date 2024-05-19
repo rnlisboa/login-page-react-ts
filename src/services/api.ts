@@ -26,7 +26,7 @@ class Api {
             //mandar pro login
             localStorage.removeItem("token");
             localStorage.removeItem("refresh_token");
-            window.location.href = "/login";
+            window.location.href = "/";
           return Promise.reject()
         }
       }
