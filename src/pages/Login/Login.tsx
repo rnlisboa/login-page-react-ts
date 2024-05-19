@@ -1,8 +1,9 @@
-import logoB2bit from "../../assets/B2Bit Logo.png"
+import React, { useState } from 'react';
+import logoB2bit from "../../assets/B2Bit Logo.png";
 import { useNavigate } from 'react-router-dom';
 import { Formik, FormikHelpers } from 'formik';
 import { useLoginRequest } from './hooks/useAuthUser';
-import { FaCircleInfo } from 'react-icons/fa6';
+import { FaCircleInfo, FaEye, FaEyeSlash } from 'react-icons/fa6'; // Importando ícones de mostrar/esconder senha
 import { InputForm } from '../../components/InputForm';
 import Button from '../../components/Button';
 
@@ -14,6 +15,7 @@ interface LoginFormValues {
 function Login() {
   const navigate = useNavigate();
   const { mutate, isPending, isError } = useLoginRequest();
+  const [showPassword, setShowPassword] = useState(false); // Estado para gerenciar visibilidade da senha
 
   const initialValues: LoginFormValues = { email: '', password: '' };
 
@@ -72,6 +74,7 @@ function Login() {
                   type='email'
                   id='email'
                   placeholder='@gmail.com'
+                  classes={'rounded-lg'}
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -80,14 +83,23 @@ function Login() {
 
               <InputForm.Root>
                 <InputForm.Label htmlFor='password' label='Password' />
-                <InputForm.Input
-                  type='password'
-                  id='password'
-                  placeholder='********'
-                  value={values.password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
+                <div className='w-[100%] flex'>
+                  <InputForm.Input
+                    type={showPassword ? 'text' : 'password'}
+                    id='password'
+                    placeholder='********'
+                    classes={'w-[100%] rounded-tl-lg rounded-bl-lg'}
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <div
+                    className='rounded-tr-lg rounded-br-lg inset-y-0 right-0 pr-3 flex items-center cursor-pointer w-[10%] bg-input-bg'
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />} 
+                  </div>
+                </div>
               </InputForm.Root>
 
               {isError && (
