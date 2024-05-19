@@ -1,22 +1,19 @@
+import { InputHTMLAttributes } from "react";
 
-type InputProps = {
-    value: string,
-    setValue: (value: string) => void,
-    placeholder: string,
-    id: string,
-    type: string
+interface InputProps extends InputHTMLAttributes<any> {
+
 }
 
 
-function Input({...props}:InputProps) {
+function Input({...rest}:InputProps) {
     return (
         <input
-            type={props.type}
-            id={props.type}
+            type={rest.type}
+            id={rest.type}
             className='border-none outline-none bg-input-bg text-input-text-color rounded-lg h-14 py-[18px] px-[20.25px] placeholder:text-input-text-color'
-            value={props.value}
-            placeholder={props.placeholder}
-            onChange={(e) => props.setValue(e.target.value)}
+            value={rest.value}
+            placeholder={rest.placeholder}
+            onChange={rest.onChange}
             required
         />
     )
