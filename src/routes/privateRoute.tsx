@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
-import { AuthContext } from "../contexts/authContext/authContext";
 import { useAuth } from "../contexts/authContext/useAuth";
+import Loading from "../components/Loading";
 
 interface PrivateRouteProps {
   component: React.ComponentType<any>;
@@ -12,7 +12,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, authe
   const {isAuthenticated, isLoading} = useAuth();
 
   if(isLoading) {
-    return "caregando...."
+    return <Loading/>
   }
 
   return isAuthenticated ? <Component {...rest} /> : <Navigate to="/login" replace />;
