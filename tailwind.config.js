@@ -11,6 +11,7 @@ module.exports = {
         "primary-text": "#",
         "input-bg": '#F1F1F1',
         "button-bg": '#02274F',
+        "button-bg-weak": '#02274F70',
         "input-text-color": '#999999'
       },
       fontFamily: {
