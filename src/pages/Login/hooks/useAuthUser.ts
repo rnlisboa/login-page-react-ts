@@ -2,6 +2,12 @@ import { useMutation } from "@tanstack/react-query";
 import { LoginDTO } from "../dtos/login.dto";
 import LoginService from "../service/loginService";
 
+type Error = {
+    data: {
+        status: number
+    }
+}
+
 const service = new LoginService();
 
 const loginRequest = async (credentials: LoginDTO) => {
@@ -19,8 +25,8 @@ export const useLoginRequest = () => {
             localStorage.setItem("refresh_token", data.tokens.refresh);
             window.location.href = "/profile";
         },
-        onError: (error) => {
-            console.log(error.message)
+        onError: (error: Error) => {
+            if(error.data.status == 401) window.location.href = '/login'
         }
     })
 
