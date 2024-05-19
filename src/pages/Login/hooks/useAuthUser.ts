@@ -17,6 +17,7 @@ export const useLoginRequest = () => {
         onSuccess: (data) => {
             localStorage.setItem("token", data.tokens.access);
             localStorage.setItem("refresh_token", data.tokens.refresh);
+            window.location.href = "/profile";
         },
         onError: (error) => {
             console.log(error.message)
