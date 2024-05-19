@@ -20,7 +20,7 @@ class Api {
         if (error.response.status === 401) {
             localStorage.removeItem("token");
             localStorage.removeItem("refresh_token");
-            //window.location.href = "/login";
+            window.location.href = "/login";
             return Promise.reject() 
           }
           else if ((error.response.status === 403)) {
