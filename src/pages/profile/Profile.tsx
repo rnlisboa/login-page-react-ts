@@ -5,7 +5,6 @@ import { useAuth } from "../../contexts/authContext/useAuth";
 
 function Profile() {
     const {logout, user} = useAuth();
-    console.log(user);
     
     return (
         <div className='h-screen flex justify-center items-center font-nunito bg-large-bg relative'>
