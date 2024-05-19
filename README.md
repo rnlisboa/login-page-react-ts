@@ -13,13 +13,13 @@
 Clone este repositório em sua máquina local usando o comando:
 </p>
 
-``` git clone https://github.com/seu-usuario/login-page.git ```
+``` git clone https://github.com/rnlisboa/login-page-react-ts.git```
 <p>
 2. Instale as Dependências
 Navegue até o diretório do projeto e instale as dependências usando Yarn:
 </p>
 
-``` cd login-page ```
+``` cd login-page-react-ts ```
 
 ``` yarn install ```
 <p>
