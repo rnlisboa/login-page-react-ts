@@ -14,11 +14,10 @@ interface LoginFormValues {
 
 function Login() {
   const navigate = useNavigate();
-  const { mutate, isPending, isError } = useLoginRequest();
+  const { mutate, isPending, isError, data } = useLoginRequest();
   const [showPassword, setShowPassword] = useState(false); 
-
   const initialValues: LoginFormValues = { email: '', password: '' };
-
+  console.log(data)
   const validate = (values: LoginFormValues) => {
     const errors: Partial<LoginFormValues> = {};
     if (!values.email) {
@@ -105,7 +104,7 @@ function Login() {
               {isError && (
                 <div className='flex gap-x-2 items-center text-red-600'>
                   <FaCircleInfo />
-                  <span>{errors.email}</span>
+                  <span>E-mail e/ou senha incorreto(s)</span>
                 </div>
               )}
 

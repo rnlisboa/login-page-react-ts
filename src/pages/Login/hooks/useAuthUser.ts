@@ -11,7 +11,7 @@ type Error = {
 const service = new LoginService();
 
 const loginRequest = async (credentials: LoginDTO) => {
-    const { data: response } = await service.login(credentials);
+    const {data: response} = await service.login(credentials);
     return response;
 }
 
