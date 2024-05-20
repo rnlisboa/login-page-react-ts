@@ -17,7 +17,7 @@ function Profile() {
                     onClick={logout}
                      />
             </Header>
-            <div className='border bg-white gap-y-8 py-10 px-6 rounded-[18px] flex justify-center flex-col items-center w-[438px]' >
+            <div className='shadow-md bg-white gap-y-8 py-10 px-6 rounded-[18px] flex justify-center flex-col items-center w-[438px]' >
                 <div className="flex flex-col justify-center items-center gap-y-4 w-[77px]">
                     <h6 className="font-semibold text-xs">
                         Profile picture
