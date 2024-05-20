@@ -7,7 +7,7 @@ interface HeaderProps {
 
 function Header({ children, classes }: HeaderProps) {
     return (<header
-        className={`flex justify-end items-center px-6 bg-white w-[100%] h-[70px] border ${classes ? classes.join(' ') : ''}`}>
+        className={`flex justify-end items-center px-6 bg-white w-[100%] h-[70px] ${classes ? classes.join(' ') : ''}`}>
         {children}
     </header>)
 }
