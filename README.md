@@ -22,8 +22,13 @@ Navegue até o diretório do projeto e instale as dependências usando Yarn:
 ``` cd login-page-react-ts ```
 
 ``` yarn install ```
+
+``` yarn dev ```
+
 <p>
 Se preferir usar npm, você pode usar o comando:
 </p>
 
 ``` npm install ```
+
+``` npm run dev ```
