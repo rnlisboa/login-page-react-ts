@@ -3,7 +3,7 @@ import logoB2bit from "../../assets/B2Bit Logo.png";
 import { useNavigate } from 'react-router-dom';
 import { Formik, FormikHelpers } from 'formik';
 import { useLoginRequest } from './hooks/useAuthUser';
-import { FaCircleInfo, FaEye, FaEyeSlash } from 'react-icons/fa6'; // Importando ícones de mostrar/esconder senha
+import { FaCircleInfo, FaEye, FaEyeSlash } from 'react-icons/fa6'; 
 import { InputForm } from '../../components/InputForm';
 import Button from '../../components/Button';
 
@@ -15,7 +15,7 @@ interface LoginFormValues {
 function Login() {
   const navigate = useNavigate();
   const { mutate, isPending, isError } = useLoginRequest();
-  const [showPassword, setShowPassword] = useState(false); // Estado para gerenciar visibilidade da senha
+  const [showPassword, setShowPassword] = useState(false); 
 
   const initialValues: LoginFormValues = { email: '', password: '' };
 
